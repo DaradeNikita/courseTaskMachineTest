@@ -1,0 +1,34 @@
+
+<h2>
+    {{courseInfo.description}}
+</h2>
+<form [formGroup]="courseForm">
+    <mat-form-field class="w-100" appearance="legacy">
+        <mat-label>Description</mat-label>
+        <input matInput type="text" formControlName="description">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="legacy">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+            <mat-option value="BEGINNER">Begineer</mat-option>
+            <mat-option value="ADVANCED">Advanced</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="legacy"class=w-100>
+        <mat-label>Released At</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="releaseAt">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="legacy">
+        <mat-label>Long Description</mat-label>
+        <textarea matInput type="text" formControlName="longDescription"></textarea>
+    </mat-form-field>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" type="button">Close</button>
+        <button mat-raised-button color="accent" (click)="saveCourse()"
+        [disabled]="courseForm.invalid" >Save</button>
+    </mat-card-actions>
+      
+</form>

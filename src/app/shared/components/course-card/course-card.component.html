@@ -1,0 +1,15 @@
+<mat-card class="mt-4 mat-elevation-z5">
+    <mat-card-header>
+        <mat-card-title>
+            {{fetchData.description}}
+        </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="fetchData.iconUrl" [alt]="fetchData.description">
+    <mat-card-content>
+        {{fetchData.longDescription}}
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="primary" [routerLink]="['/course',fetchData.id]">View Course</button>
+        <button mat-raised-button color="accent" (click)=" onCourseEdit()">Edit Course</button>
+    </mat-card-actions>
+</mat-card>

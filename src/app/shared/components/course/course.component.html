@@ -1,0 +1,36 @@
+<div class="courses">
+    <ng-container *ngIf="(singleCourseInfo$ |async) as course;else noCourse">
+      <h2>{{course.description}}</h2>
+      <img [src]="course.iconUrl" [alt]="course.description">
+    </ng-container>
+</div>
+<form [formGroup]="lessonForm">
+    <mat-form-field class="w-100 my-3" appearance="legacy">
+        <mat-label>Search Lesson</mat-label>
+        <input matInput type="text" formControlName="lesson">
+    </mat-form-field>
+</form>
+<ng-template #noCourse>
+    <p class="alert alert-danger">No course available</p>
+</ng-template>
+<ng-container *ngIf="(lesson$ | async) as lesson ;else noLesson">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th>SR.No</th>
+            <th>Lesson Name</th>
+            <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lesson of lesson">
+                <td>{{lesson.seqNo}}</td>
+                <td>{{lesson.description}}</td>
+                <td>{{lesson.duration}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
+<ng-template #noLesson>
+    <p class="alert alert-danger">No lessons available</p>
+</ng-template>

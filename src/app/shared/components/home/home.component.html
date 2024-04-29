@@ -1,0 +1,13 @@
+<div class="course-panel">
+   <h3 class="mt-2"><strong>All Courses</strong></h3>
+        <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start">
+            <mat-tab label="Begineer">
+        <app-course-card [fetchData]="course" *ngFor="let course of begineerCourseArr"></app-course-card>
+            </mat-tab>
+            <mat-tab label="Advanced">
+         <app-course-card [fetchData]="course" *ngFor="let course of advancedCourseArr"></app-course-card>
+            </mat-tab>
+            
+          </mat-tab-group>
+   
+</div>
